@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Layout, message, Menu, Row, Col } from "antd";
+import { Layout, message, Row, Col } from "antd";
 
 import CartList from "./components/content";
 import Drawers from "./components/drawer";
@@ -9,50 +9,49 @@ import { list } from "../../utils";
 
 const { Header, Content } = Layout;
 
-document.title = "Shopping Cart Demo";
+document.title = "Onex";
 
 const ProductsPage = () => {
-  const loggedInUser = localStorage.getItem("authToken");
 
-  const [cart, setCart] = useState({
+  
+  const loggedInUser = localStorage.getItem("authToken");
+  
+  const [cart, setCart] = useState<any>({
     shoppingCart: [],
   });
-
-
+  
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     if (!loggedInUser) {
       navigate("/login");
     }
   });
-
-  console.log();
-
-  const updateField = (e) => {
+  
+  const updateField = (e: React.ChangeEvent<HTMLInputElement>) => {
     message.destroy();
     message.info("Added to cart");
-
+    
     setCart({
       ...cart,
-      // shoppingCart: [...cart.shoppingCart, {item:{ ...e.item, userName} }],
       shoppingCart: [...cart.shoppingCart, e],
     });
   };
 
   return (
     <Layout>
-      <Header className="header">
+      <Header style={{ backgroundColor: "#0089ed" }}>
         <Row>
           <Col span={8}>
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={["2"]}
-              style={{ lineHeight: "64px" }}
+            <p
+              style={{
+                backgroundColor: "#0089ed",
+                fontSize: 24,
+                color: "white",
+              }}
             >
-              <Menu.Item key="1">Cart Demo</Menu.Item>
-            </Menu>
+              Onex
+            </p>
           </Col>
           <Col style={{ textAlign: "right" }}>
             <Drawers

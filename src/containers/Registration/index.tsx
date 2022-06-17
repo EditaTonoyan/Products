@@ -3,7 +3,6 @@ import { SignUp } from "../../assets/icons";
 import FormGroup from "../../components/FormGroup";
 import styles from "./registration.module.scss";
 
-
 const Registration = () => {
   const userNames = localStorage.getItem("users")
     ? JSON.parse(localStorage.getItem("users") as string)
@@ -11,14 +10,10 @@ const Registration = () => {
 
   const navigate = useNavigate();
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: { email: string; password: string }) => {
     userNames.push(values);
     localStorage.setItem("users", JSON.stringify(userNames));
     navigate("/login");
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -43,11 +38,7 @@ const Registration = () => {
             </div>
           </div>
           <div>
-            <FormGroup
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-              signUp
-            />
+            <FormGroup onFinish={onFinish} signUp />
           </div>
         </div>
       </div>

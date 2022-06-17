@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import styles from "./adminPanel.module.scss";
+
+import { IorderedListItems, IOrdersList } from "./types";
 
 const AdminPanel = () => {
   const navigate = useNavigate();
 
-  const [ordersList, setOrdersList] = useState<any>([]);
+  const [ordersList, setOrdersList] = useState<IOrdersList[]>([]);
   const [togglaed, setToggled] = useState(false);
 
   useEffect(() => {
@@ -21,9 +24,11 @@ const AdminPanel = () => {
   }, [navigate, togglaed]);
 
   const deleteOrder = (index: number) => {
+    console.log(111);
+    
     ordersList.splice(index, 1);
     localStorage.setItem("orders", JSON.stringify(ordersList));
-    setToggled(true);
+    setToggled(!togglaed);
   };
 
   const confirmOrder = (index: number) => {
@@ -34,7 +39,7 @@ const AdminPanel = () => {
   };
 
   const orderedList = ordersList.map(
-    ({ userName, status, trackingCode, item }: any, index: number) => {
+    ({ userName, status, trackingCode, item }: IOrdersList, index: number) => {
       return (
         <div key={index} className={styles.wrapper_admin__userInfo}>
           <div>
@@ -61,7 +66,7 @@ const AdminPanel = () => {
             </div>
           </div>
           <div className={styles.wrapper_admin__orderInfo}>
-            {item.map(({ item }: any, ind: number) => {
+            {item.map(({ item }: IorderedListItems, ind: number) => {
               return (
                 <div key={ind}>
                   <img

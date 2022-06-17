@@ -1,12 +1,7 @@
 {
   "compilerOptions": {
-    // "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,13 +14,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true
   },
-  
-  "include": [
-    "src",
-    // "src/**/*.ts",
-    "declarations.d.ts",
-    "custom.d.ts"
-  ]
+
+  "include": ["src", "declarations.d.ts", "custom.d.ts"]
 }

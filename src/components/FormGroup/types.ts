@@ -1,5 +1,4 @@
 export interface IFormData {
   signUp?: boolean;
-  onFinish: (val:any) => void;
-  onFinishFailed: (val:any) => void
+  onFinish: (values:{email: string, password: string}) => void;
 }

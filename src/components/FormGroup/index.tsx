@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { Button, Form, Input, Select } from "antd";
 
 import { IFormData } from "./types";
@@ -7,7 +8,7 @@ import { signUpInputs, signInInputs } from "../../utils";
 
 const { Option } = Select;
 
-const FormGroup: FC<IFormData> = ({ signUp, onFinish, onFinishFailed }) => {
+const FormGroup: FC<IFormData> = ({ signUp, onFinish }) => {
   const signIndatas = signUp
     ? signUpInputs.map(({ label, name, message }, index) => (
         <Form.Item
@@ -44,7 +45,6 @@ const FormGroup: FC<IFormData> = ({ signUp, onFinish, onFinishFailed }) => {
       wrapperCol={{ span: 16 }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       {signIndatas}

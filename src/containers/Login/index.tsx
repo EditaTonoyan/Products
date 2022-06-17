@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
-
 import { useState } from "react";
+
+import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./login.module.scss";
 
 import { SignUp } from "../../assets/icons";
 
-import { useNavigate } from "react-router-dom";
-
 import FormGroup from "../../components/FormGroup";
 
 const Login = () => {
   const [message, setMessage] = useState<string>("");
+
   const navigate = useNavigate();
 
   const allUsers = localStorage.getItem("users")
@@ -29,20 +28,17 @@ const Login = () => {
     navigate("/");
   };
 
-  const onFinish = (values: any) => {
-    allUsers.forEach((user: any) => {
-      console.log(user);
-
-      if (values.email == user.email && values.password == user.password) {
-        setToken(values, user.select);
-      } else {
-        setMessage("You havent account, please registrate");
+  const onFinish = (values: { email: string; password: string }) => {
+    allUsers.forEach(
+      (user: { email: string; password: string; select: string }) => {
+        if (values.email == user.email && values.password == user.password) {
+          setToken(values, user.select);
+        } else {
+          setMessage("You havent account, please registrate");
+        }
       }
-    });
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
+    );
+    allUsers.length == 0 && setMessage("You havent account, please registrate");
   };
 
   return (
@@ -68,7 +64,7 @@ const Login = () => {
             </div>
           )}
           <div>
-            <FormGroup onFinish={onFinish} onFinishFailed={onFinishFailed} />
+            <FormGroup onFinish={onFinish} />
           </div>
         </div>
       </div>

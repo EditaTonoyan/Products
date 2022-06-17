@@ -4,3 +4,11 @@ export interface IProductsData {
   images: string[];
   price: number;
 }
+export interface IList {
+  title: string;
+  price: string;
+  description: string;
+  img: string;
+}
+
+

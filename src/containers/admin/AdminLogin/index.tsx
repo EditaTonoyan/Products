@@ -18,21 +18,18 @@ const AdminLogin = () => {
     navigate("/adminPanel");
   };
 
-  const onFinish = (values: any) => {
-    allUsers.forEach((user: any) => {
-      console.log(user);
-      if (
-        values.email == user.userName &&
-        values.password == user.password &&
-        user.select == "admin"
-      ) {
-        setToken();
+  const onFinish = (values: { email: string; password: number }) => {
+    allUsers.forEach(
+      (user: { userName: string; password: number; select: string }) => {
+        if (
+          values.email == user.userName &&
+          values.password == user.password &&
+          user.select == "admin"
+        ) {
+          setToken();
+        }
       }
-    });
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
+    );
   };
 
   return (
@@ -59,7 +56,6 @@ const AdminLogin = () => {
               wrapperCol={{ span: 16 }}
               initialValues={{ remember: true }}
               onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
               <Form.Item

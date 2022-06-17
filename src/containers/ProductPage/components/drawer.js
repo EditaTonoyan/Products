@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Drawer, Button, Row, Col, Badge } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import uuid from "react-uuid";
 
 export default function Drawers(props) {
@@ -11,8 +12,6 @@ export default function Drawers(props) {
   const loggedInUser = localStorage.getItem("authToken");
   const shoppingList = JSON.parse(localStorage.getItem("shoppingList"));
   const ordersList = JSON.parse(localStorage.getItem("orders"));
-
-  console.log(shoppingList);
 
   useEffect(() => {
     setAddedList({
@@ -48,8 +47,6 @@ export default function Drawers(props) {
     props.clear();
 
     localStorage.setItem("orders", JSON.stringify(orders));
-
-    console.log(orders);
   };
 
   const DescriptionItem = ({ title, content, url }) => (
@@ -80,14 +77,14 @@ export default function Drawers(props) {
         <Badge
           count={addedList.shoppingCartList.length}
           style={{
-            backgroundColor: "#fff",
+            backgroundColor: "#fff ",
             color: "#999",
             boxShadow: "0 0 0 1px red inset",
           }}
         >
-          <Button style={{ backgroundColor: "white" }} type="shopping-cart">
-            Add
-          </Button>
+          <ShoppingCartOutlined
+            style={{ width: 35, height: 50, fontSize: 20, color: "#0089ed" }}
+          />
         </Badge>
       </Button>
 
