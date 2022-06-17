@@ -1,0 +1,19 @@
+@import "../../styles//index.scss";
+
+.wrapper {
+  padding-top: 40px;
+
+  &__form_inputs {
+    border: 1px solid $color_light_grey;
+    color: $color_light_grey;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    outline: none;
+    padding: 8px;
+    width: 100%;
+  }
+
+  &__form_inputs:last-child {
+    margin-bottom: 0px;
+  }
+}

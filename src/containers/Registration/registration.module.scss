@@ -1,0 +1,51 @@
+@import "../../styles/index.scss";
+
+.wrapper {
+  position: relative;
+  background-color: $blue_color;
+  height: calc(50% - 50%);
+  max-height: 380px;
+  width: 100%;
+
+  &__registration {
+    @include df(space-between);
+    &_items {
+      margin-top: 80px;
+      padding: 32px;
+      background-color: $color_white;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 450px;
+      max-height: 850px;
+      box-shadow: 3px 5px 7px rgba(76, 76, 76, 0.11);
+
+      &__button {
+        color: $color_white;
+        width: 100%;
+        background-color: $blue_color;
+        padding:8px;
+        border-radius: 6px;
+        margin-top:24px
+      }
+    }
+
+    &_content {
+      @include df(space-between);
+      align-items: center;
+
+      &__title {
+        @include fonts(36px, 800, $color_black);
+      }
+
+      &__text {
+        @include fonts(12px, 400, $color_light_grey);
+      }
+
+      &__text:nth-child(2) {
+        @include fonts(12px, 400, $blue_color);
+        text-decoration: none;
+        margin-top: 5px;
+      }
+    }
+  }
+}

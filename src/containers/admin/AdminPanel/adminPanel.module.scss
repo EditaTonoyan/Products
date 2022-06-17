@@ -1,0 +1,58 @@
+@import "../../../styles/index.scss";
+
+.wrapper_admin {
+  background-color: aliceblue;
+  &_header {
+    background-color: $blue_color;
+    padding: 16px;
+    align-items: center;
+    text-align: center;
+    @include fonts(24px, 400, $color_white);
+  }
+
+  &__userInfo {
+    position: relative;
+
+    margin-bottom: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 16px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.99);
+
+    &_item div {
+      align-items: center;
+      text-align: center;
+      @include fonts(16px, 400, $color_black);
+    }
+    &_item span {
+      @include fonts(16px, 800, $color_black);
+    }
+    &_item_confirmed {
+      @include fonts(24px, 400, rgb(10, 150, 0));
+    }
+  }
+
+  &__orderInfo {
+    padding-top: 10px;
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+  }
+
+  &__buttons {
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+
+    &_button {
+      margin-right: 10px;
+      padding: 8px;
+      background-color: rgba(172, 9, 9, 0.492);
+    }
+
+    &_button:nth-child(2) {
+      background-color: rgba(125, 205, 120, 0.371);
+    }
+  }
+}

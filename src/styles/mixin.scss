@@ -1,0 +1,17 @@
+/** @format */
+
+@import "../styles/colors.scss";
+
+@mixin fonts($size, $weight, $color) {
+  color: $color;
+  font-size: $size;
+  font-style: normal;
+  font-family: Mulish;
+  font-weight: $weight;
+}
+
+
+@mixin df($jsf_content){
+  display: flex;
+  justify-content: $jsf_content;
+}
