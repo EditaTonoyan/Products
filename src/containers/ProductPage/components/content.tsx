@@ -19,12 +19,20 @@ const CartList = (props: { list: any[]; update: (arg0: any) => void }) => {
     }
   };
 
+  const rate: any = {
+    amd: 1,
+    usd: 435,
+    eur: 455,
+    rur: 6.7,
+  };
+
   return (
     <Row gutter={10}>
       {addToCart.list.map(
         (
           item: {
-            price: string;
+            price: number;
+            currency: string;
             img: string;
             title: string;
             description: string;
@@ -49,6 +57,7 @@ const CartList = (props: { list: any[]; update: (arg0: any) => void }) => {
               }
             >
               <Meta title={item.title} description={item.description} />
+              <p>{`${Math.floor(item.price * rate[item.currency])} AMD`}</p>
             </Card>
           </Col>
         )

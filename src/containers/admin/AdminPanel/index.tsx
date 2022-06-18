@@ -35,7 +35,7 @@ const AdminPanel = () => {
     ordersList[index].status = "confirmed";
     localStorage.setItem("orders", JSON.stringify(ordersList));
 
-    setToggled(true);
+    setToggled(!togglaed);
   };
 
   const orderedList = ordersList.map(

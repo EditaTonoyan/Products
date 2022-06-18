@@ -1,6 +1,6 @@
 export interface IorderedListItems {
   item: {
-    price: string;
+    price: number;
     title: string;
     description: string;
     img: string;

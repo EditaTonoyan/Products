@@ -13,25 +13,25 @@ document.title = "Onex";
 
 const ProductsPage = () => {
 
-  
+
   const loggedInUser = localStorage.getItem("authToken");
-  
+
   const [cart, setCart] = useState<any>({
     shoppingCart: [],
   });
-  
+
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (!loggedInUser) {
       navigate("/login");
     }
   });
-  
+
   const updateField = (e: React.ChangeEvent<HTMLInputElement>) => {
     message.destroy();
     message.info("Added to cart");
-    
+
     setCart({
       ...cart,
       shoppingCart: [...cart.shoppingCart, e],

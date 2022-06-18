@@ -6,9 +6,8 @@ export interface IProductsData {
 }
 export interface IList {
   title: string;
-  price: string;
+  price: number;
+  currency: string;
   description: string;
   img: string;
 }
-
-
